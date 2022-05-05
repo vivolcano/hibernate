@@ -1,3 +1,3 @@
-# Домашнее задание к занятию «ORM, Hibernate, Entity Lifecycle, Embedding, Relationships»
+# Домашнее задание к занятию 8.6: Безопасность в веб-приложениях, Spring Security
 
-## Задача DAO слой c Hibernate
+## Задача Безопасное приложение
