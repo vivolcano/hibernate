@@ -1,12 +1,10 @@
 package ru.netology.hibernate.repository;
 
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ru.netology.hibernate.domain.Person;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
@@ -14,17 +12,14 @@ import java.util.List;
  *
  * @author Viktor_Loskutov
  */
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @Repository
-public class PersonRepository {
+public interface PersonRepository extends JpaRepository<Person, Long> {
 
-    @PersistenceContext
-    EntityManager entityManager;
+    List<Person> findByCityOfLiving(@Param("cityOfLiving") String cityOfLiving);
 
-    @SuppressWarnings("unchecked")
-    public List<Person> findPersonsByCity(String city) {
-        return entityManager.createQuery("SELECT p FROM Person p WHERE p.cityOfLiving = :city")
-                .setParameter("city", city)
-                .getResultList();
-    }
+    List<Person> findByAgeLessThanOrderByAge(@Param("age") int age);
+
+    List<Person> findByNameAndSurname(@Param("name") String name, @Param("surname") String surname);
+
+    Person findPersonById(Long id);
 }

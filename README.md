@@ -1,3 +1,3 @@
-# Домашнее задание к занятию «ORM, Hibernate, Entity Lifecycle, Embedding, Relationships»
+# Домашнее задание к занятию «Spring JPA Repositories, JPQL»
 
-## Задача DAO слой c Hibernate
+## Задача DAO слой c JPA Repositories
